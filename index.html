@@ -1,0 +1,2094 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Inicruel — Dota 2 & Valorant контент‑мейкер</title>
+    <meta
+      name="description"
+      content="One-page portfolio контент-мейкера по Dota 2 и Valorant: каналы, статистика, охваты, прайс, услуги и контакты."
+    />
+    <link rel="icon" href="1.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="1.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #f9f9f9;
+        --surface: #ffffff;
+        --text: #1a1a1a;
+        --muted: rgba(26, 26, 26, 0.68);
+        --border: rgba(26, 26, 26, 0.1);
+        --shadow: 0 18px 45px rgba(10, 16, 24, 0.08);
+        --shadow-soft: 0 10px 30px rgba(10, 16, 24, 0.06);
+        --radius: 24px;
+
+        /* Accent: deep navy (expressive but premium) */
+        --accent: #0f2a4a;
+        --accent-2: #123b66;
+        --accent-wash: rgba(15, 42, 74, 0.08);
+        --accent-wash-2: rgba(15, 42, 74, 0.14);
+
+        --container: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans",
+          "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 600px at 20% 0%, rgba(15, 42, 74, 0.07), transparent 55%),
+          radial-gradient(900px 480px at 90% 10%, rgba(15, 42, 74, 0.05), transparent 52%), var(--bg);
+        line-height: 1.55;
+        letter-spacing: -0.01em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--container));
+        margin-inline: auto;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        padding: 10px 12px;
+        border-radius: 12px;
+        z-index: 10;
+      }
+
+      .skip-link:focus {
+        left: 12px;
+      }
+
+      /* Top nav */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+        background: rgba(249, 249, 249, 0.75);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+      }
+
+      .nav__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .brand__mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        background: url("1.jpg") center / cover no-repeat;
+        border: 1px solid rgba(26, 26, 26, 0.12);
+        box-shadow: 0 10px 30px rgba(10, 16, 24, 0.10);
+        position: relative;
+        overflow: hidden;
+        flex: 0 0 auto;
+      }
+
+      .brand__mark::after {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 42%),
+          radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.55), transparent 45%);
+        transform: rotate(18deg);
+      }
+
+      .brand__text {
+        min-width: 0;
+      }
+
+      .brand__name {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        font-size: 14px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .brand__tag {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav__links {
+        display: none;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .nav__link {
+        font-size: 14px;
+        color: var(--muted);
+        padding: 8px 10px;
+        border-radius: 12px;
+        transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+      }
+
+      .nav__link:hover {
+        background: rgba(15, 42, 74, 0.06);
+        color: var(--text);
+        transform: translateY(-1px);
+      }
+
+      .nav__cta {
+        display: flex;
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1;
+        min-height: 44px;
+        border: 1px solid transparent;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+        will-change: transform;
+        user-select: none;
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn--primary {
+        background: linear-gradient(180deg, var(--accent-2), var(--accent));
+        color: white;
+        box-shadow: 0 14px 34px rgba(15, 42, 74, 0.22);
+      }
+
+      .btn--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 44px rgba(15, 42, 74, 0.26);
+      }
+
+      .btn--ghost {
+        background: rgba(255, 255, 255, 0.65);
+        border-color: rgba(26, 26, 26, 0.12);
+        box-shadow: 0 10px 24px rgba(10, 16, 24, 0.06);
+      }
+
+      .btn--ghost:hover {
+        transform: translateY(-2px);
+        border-color: rgba(15, 42, 74, 0.22);
+        box-shadow: 0 16px 36px rgba(10, 16, 24, 0.08);
+      }
+
+      .btn__icon {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        flex: 0 0 auto;
+      }
+
+      /* Sections */
+      .section {
+        padding: 56px 0;
+      }
+
+      .section--tight {
+        padding: 42px 0;
+      }
+
+      .section__head {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .kicker {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(15, 42, 74, 0.8);
+      }
+
+      .h2 {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 70ch;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 56px 0 32px;
+      }
+
+      .hero__grid {
+        display: grid;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .hero__card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.92));
+        border: 1px solid rgba(26, 26, 26, 0.08);
+        box-shadow: var(--shadow);
+        border-radius: calc(var(--radius) + 4px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero__card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(800px 300px at 20% 0%, rgba(15, 42, 74, 0.11), transparent 58%),
+          radial-gradient(700px 320px at 100% 20%, rgba(15, 42, 74, 0.08), transparent 60%);
+        pointer-events: none;
+      }
+
+      .hero__inner {
+        position: relative;
+        padding: 22px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.05);
+        font-size: 12px;
+        color: rgba(26, 26, 26, 0.72);
+      }
+
+      .hero__identity {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .avatar {
+        width: 68px;
+        height: 68px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid rgba(26, 26, 26, 0.12);
+        box-shadow: 0 18px 45px rgba(10, 16, 24, 0.10);
+        background: rgba(255, 255, 255, 0.8);
+        flex: 0 0 auto;
+      }
+
+      @media (min-width: 820px) {
+        .avatar {
+          width: 78px;
+          height: 78px;
+        }
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(15, 42, 74, 0.12);
+      }
+
+      .hero__title {
+        margin: 0;
+        font-size: 34px;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+
+      .hero__subtitle {
+        margin: 0;
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .hero__actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: stretch;
+      }
+
+      .hero__meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .meta-card {
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        box-shadow: var(--shadow-soft);
+        padding: 16px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .meta-title {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .meta-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: rgba(26, 26, 26, 0.76);
+        font-size: 14px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .meta-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .meta-icn {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: rgba(15, 42, 74, 0.9);
+        margin-top: 1px;
+      }
+
+      /* Cards / grids */
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+        position: relative;
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(480px 200px at 20% 0%, rgba(15, 42, 74, 0.08), transparent 60%);
+        opacity: 0;
+        transition: opacity 180ms ease;
+        pointer-events: none;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(15, 42, 74, 0.18);
+        box-shadow: 0 18px 45px rgba(10, 16, 24, 0.10);
+      }
+
+      .card:hover::after {
+        opacity: 1;
+      }
+
+      .card__body {
+        padding: 16px;
+        display: grid;
+        gap: 10px;
+        position: relative;
+      }
+
+      .card__title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-wash);
+        border: 1px solid rgba(15, 42, 74, 0.14);
+        font-size: 12px;
+        color: rgba(15, 42, 74, 0.95);
+        width: fit-content;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, rgba(15, 42, 74, 0.12), rgba(15, 42, 74, 0.04));
+        border: 1px solid rgba(15, 42, 74, 0.14);
+        box-shadow: 0 14px 28px rgba(15, 42, 74, 0.10);
+        flex: 0 0 auto;
+      }
+
+      .logo svg {
+        width: 22px;
+        height: 22px;
+        color: rgba(15, 42, 74, 0.92);
+      }
+
+      .row {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .channel-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(15, 42, 74, 0.92);
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.05);
+      }
+
+      .channel-link:hover {
+        transform: translateY(-2px);
+        background: rgba(15, 42, 74, 0.06);
+        box-shadow: 0 16px 34px rgba(10, 16, 24, 0.07);
+      }
+
+      .channel-link svg {
+        width: 18px;
+        height: 18px;
+        transition: transform 180ms ease;
+      }
+
+      .channel-link:hover svg {
+        transform: translateX(4px);
+      }
+
+      /* Stats */
+      .stats {
+        display: grid;
+        gap: 14px;
+      }
+
+      .stat {
+        padding: 18px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .stat__value {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+
+      .stat__label {
+        color: rgba(26, 26, 26, 0.70);
+        font-size: 13px;
+      }
+
+      /* Carousel (stats replacement) */
+      .carousel {
+        position: relative;
+        max-width: 520px;
+        margin-inline: auto;
+      }
+
+      .carousel__viewport {
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .carousel__track {
+        display: flex;
+        width: 100%;
+        transform: translateX(0);
+        transition: transform 520ms cubic-bezier(0.2, 0.65, 0.2, 1);
+        will-change: transform;
+        touch-action: pan-y;
+      }
+
+      .carousel__slide {
+        min-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .carousel__media {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        background: linear-gradient(135deg, rgba(15, 42, 74, 0.10), rgba(15, 42, 74, 0.02));
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .carousel__caption {
+        margin-top: 10px;
+        text-align: center;
+        color: rgba(26, 26, 26, 0.72);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .carousel__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-62%);
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(26, 26, 26, 0.12);
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 14px 34px rgba(10, 16, 24, 0.10);
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+        cursor: pointer;
+      }
+
+      .carousel__btn:hover {
+        transform: translateY(-62%) scale(1.03);
+        border-color: rgba(15, 42, 74, 0.22);
+        background: rgba(15, 42, 74, 0.06);
+        box-shadow: 0 18px 45px rgba(10, 16, 24, 0.12);
+      }
+
+      .carousel__btn:active {
+        transform: translateY(-62%) scale(0.99);
+      }
+
+      .carousel__btn:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+
+      .carousel__btn--prev {
+        left: 10px;
+      }
+
+      .carousel__btn--next {
+        right: 10px;
+      }
+
+      .carousel__btn svg {
+        width: 20px;
+        height: 20px;
+        color: rgba(15, 42, 74, 0.95);
+      }
+
+      .toggle {
+        margin-top: 18px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: stretch;
+      }
+
+      .toggle .btn.is-active {
+        background: rgba(15, 42, 74, 0.10);
+        border-color: rgba(15, 42, 74, 0.22);
+        box-shadow: 0 16px 36px rgba(10, 16, 24, 0.08);
+        color: rgba(15, 42, 74, 0.98);
+      }
+
+      .toggle .btn.is-active:hover {
+        background: rgba(15, 42, 74, 0.12);
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid rgba(26, 26, 26, 0.10);
+      }
+
+      .table th,
+      .table td {
+        padding: 14px 14px;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        text-align: left;
+      }
+
+      .table th {
+        background: rgba(15, 42, 74, 0.06);
+        color: rgba(15, 42, 74, 0.95);
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Table rows: fade-in-up with stagger */
+      .reveal-row {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 560ms cubic-bezier(0.2, 0.65, 0.2, 1),
+          transform 560ms cubic-bezier(0.2, 0.65, 0.2, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+        will-change: opacity, transform;
+      }
+
+      .reveal-row.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 820px) {
+        .table th,
+        .table td {
+          padding: 16px 16px;
+          font-size: 16px;
+        }
+      }
+
+      .note {
+        padding: 14px 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(15, 42, 74, 0.14);
+        background: linear-gradient(180deg, rgba(15, 42, 74, 0.08), rgba(255, 255, 255, 0.66));
+        box-shadow: 0 14px 34px rgba(10, 16, 24, 0.06);
+        color: rgba(26, 26, 26, 0.78);
+        font-size: 14px;
+      }
+
+      /* Examples */
+      .thumb {
+        height: 140px;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        background: linear-gradient(135deg, rgba(15, 42, 74, 0.12), rgba(15, 42, 74, 0.02));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .thumb::before {
+        content: "";
+        position: absolute;
+        inset: -30%;
+        background: radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.8), transparent 52%),
+          radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.55), transparent 52%),
+          linear-gradient(120deg, rgba(15, 42, 74, 0.10), transparent 40%);
+        transform: rotate(-6deg);
+      }
+
+      .thumb__label {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.06);
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      /* Work screenshots */
+      .shot {
+        height: 180px;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        background: linear-gradient(135deg, rgba(15, 42, 74, 0.12), rgba(15, 42, 74, 0.02));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shot::before {
+        content: "";
+        position: absolute;
+        inset: -30%;
+        background: radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.85), transparent 52%),
+          radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.55), transparent 52%),
+          linear-gradient(120deg, rgba(15, 42, 74, 0.10), transparent 40%);
+        transform: rotate(-6deg);
+        pointer-events: none;
+      }
+
+      .shot__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.02) contrast(1.02);
+      }
+
+      .shot__label {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.06);
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      /* CTA */
+      .cta {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.92));
+        border: 1px solid rgba(26, 26, 26, 0.08);
+        border-radius: calc(var(--radius) + 4px);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(900px 340px at 15% 0%, rgba(15, 42, 74, 0.12), transparent 58%),
+          radial-gradient(800px 360px at 100% 40%, rgba(15, 42, 74, 0.08), transparent 60%);
+        pointer-events: none;
+      }
+
+      .cta__inner {
+        position: relative;
+        padding: 22px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .cta__row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .inline-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        color: rgba(26, 26, 26, 0.75);
+        font-size: 14px;
+      }
+
+      .inline-list a {
+        color: rgba(15, 42, 74, 0.95);
+        font-weight: 600;
+        padding: 8px 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.05);
+      }
+
+      .inline-list a:hover {
+        transform: translateY(-2px);
+        background: rgba(15, 42, 74, 0.06);
+        box-shadow: 0 16px 34px rgba(10, 16, 24, 0.07);
+      }
+
+      footer {
+        padding: 28px 0 34px;
+        color: rgba(26, 26, 26, 0.62);
+        font-size: 13px;
+      }
+
+      /* FAQ */
+      .faq {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq__item {
+        padding: 0;
+      }
+
+      .faq__btn {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        padding: 16px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: space-between;
+        cursor: pointer;
+        text-align: left;
+        font-family: inherit;
+        color: inherit;
+      }
+
+      .faq__q {
+        display: grid;
+        gap: 4px;
+      }
+
+      .faq__qTitle {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        font-size: 15px;
+        line-height: 1.2;
+      }
+
+      .faq__qHint {
+        font-size: 13px;
+        color: rgba(26, 26, 26, 0.62);
+      }
+
+      .faq__chev {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(26, 26, 26, 0.10);
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.05);
+        flex: 0 0 auto;
+        transition: transform 320ms cubic-bezier(0.2, 0.65, 0.2, 1), background 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .faq__chev svg {
+        width: 18px;
+        height: 18px;
+        color: rgba(15, 42, 74, 0.95);
+        transition: transform 320ms cubic-bezier(0.2, 0.65, 0.2, 1);
+      }
+
+      .faq__btn:hover .faq__chev {
+        background: rgba(15, 42, 74, 0.06);
+        border-color: rgba(15, 42, 74, 0.18);
+      }
+
+      .faq__panel {
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transform: translateY(-6px);
+        transition: height 420ms cubic-bezier(0.2, 0.65, 0.2, 1), opacity 280ms ease,
+          transform 420ms cubic-bezier(0.2, 0.65, 0.2, 1);
+      }
+
+      .faq__content {
+        padding: 0 16px 16px;
+        color: rgba(26, 26, 26, 0.76);
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 85ch;
+      }
+
+      .faq__content p {
+        margin: 0;
+      }
+
+      .faq__item.is-open .faq__panel {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .faq__item.is-open .faq__chev svg {
+        transform: rotate(180deg);
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 700ms cubic-bezier(0.2, 0.65, 0.2, 1), transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Accessibility / reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+          animation: none !important;
+        }
+        .faq__panel {
+          height: auto !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .reveal-row {
+          opacity: 1;
+          transform: none;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Desktop enhancements */
+      @media (min-width: 820px) {
+        .nav__links {
+          display: flex;
+        }
+
+        .hero {
+          padding: 74px 0 44px;
+        }
+
+        .hero__grid {
+          grid-template-columns: 1.35fr 0.65fr;
+          gap: 16px;
+          align-items: stretch;
+        }
+
+        .hero__inner {
+          padding: 26px;
+        }
+
+        .hero__title {
+          font-size: 46px;
+        }
+
+        .hero__meta {
+          grid-template-columns: 1fr;
+        }
+
+        .grid--2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid--3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .stats {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <header class="nav" role="banner">
+      <div class="container">
+        <div class="nav__inner">
+          <a class="brand" href="#top" aria-label="На верх страницы">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__text">
+              <div class="brand__name">Inicruel</div>
+              <div class="brand__tag">Dota 2 • Valorant • Shorts</div>
+            </span>
+          </a>
+
+          <nav class="nav__links" aria-label="Навигация">
+            <a class="nav__link" href="#channels">Каналы</a>
+            <a class="nav__link" href="#stats">Статистика</a>
+            <a class="nav__link" href="#reach">Охваты</a>
+            <a class="nav__link" href="#services">Услуги</a>
+            <a class="nav__link" href="#faq">FAQ</a>
+            <a class="nav__link" href="#contact">Контакты</a>
+          </nav>
+
+          <div class="nav__cta">
+            <a class="btn btn--primary" href="#contact">
+              Связаться
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M21 5.1c.1-.8-.6-1.4-1.3-1.2L3.3 9.8c-1 .35-.97 1.76.04 2.05l4.3 1.23 1.6 5.2c.3.98 1.55 1.1 2.02.2l2.5-4.7 4.8 3.54c.75.55 1.8.12 1.94-.8L21 5.1Z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.3 13.2 18.2 7.9"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero">
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__card reveal">
+              <div class="hero__inner">
+                <div class="badge-row">
+                  <span class="badge"><span class="dot" aria-hidden="true"></span>Открыт к интеграциям</span>
+                  <span class="badge">Коротко, чисто, без воды</span>
+                </div>
+
+                <div class="hero__identity">
+                  <img class="avatar" src="1.jpg" alt="Аватар Inicruel" />
+                  <h1 class="hero__title">Inicruel</h1>
+                </div>
+                <p class="hero__subtitle">
+                  Контент‑мейкер по <strong>Dota 2</strong> и <strong>Valorant</strong>. Делаю ролики, которые удерживают
+                  внимание и приводят клики — в узнаваемом стиле.
+                </p>
+
+                <div class="hero__actions">
+                  <a class="btn btn--primary" href="#channels">
+                    Каналы
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 5v14m0 0 6-6m-6 6-6-6"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                  <a class="btn btn--ghost" href="#contact">Связаться</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Removed: "Фокус" and "Быстрые факты" -->
+          </div>
+        </div>
+      </section>
+
+      <section id="channels" class="section section--tight">
+        <div class="container">
+          <div class="section__head reveal">
+            <div class="kicker">Мои каналы</div>
+            <h2 class="h2">Площадки, где выходит контент</h2>
+            <p class="lead">TikTok и YouTube — по Dota 2 и Valorant.</p>
+          </div>
+
+          <div class="grid grid--2">
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="row">
+                  <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M9 8.5c0-1.9 1.6-3.5 3.5-3.5S16 6.6 16 8.5 14.4 12 12.5 12H11v3"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8 15.5c.8 1.8 2.6 3 4.8 3 3 0 5.2-2.2 5.2-5.2V6.5"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="card__title">TikTok Dota 2</div>
+                    <div class="muted">Короткие хайлайты, клипы, тренды</div>
+                  </div>
+                </div>
+                <a
+                  class="channel-link"
+                  href="https://www.tiktok.com/@inicruel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Открыть TikTok Dota 2: @inicruel"
+                >
+                  Открыть канал
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M10 14 20 4M14 4h6v6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="row">
+                  <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 3l8 6-8 12L4 9l8-6Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9 10.2 12 7.8l3 2.4-3 4.8-3-4.8Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="card__title">TikTok Valorant</div>
+                    <div class="muted">Фраги, клипы, реакции, хайп‑момент</div>
+                  </div>
+                </div>
+                <a
+                  class="channel-link"
+                  href="https://www.tiktok.com/@xssoxi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Открыть TikTok Valorant: @xssoxi"
+                >
+                  Открыть канал
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M10 14 20 4M14 4h6v6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="row">
+                  <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M10 9v6l5-3-5-3Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M21 12c0 6-3 8-9 8s-9-2-9-8 3-8 9-8 9 2 9 8Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="card__title">YouTube Dota 2</div>
+                    <div class="muted">Сжатые истории + лучший момент</div>
+                  </div>
+                </div>
+                <a
+                  class="channel-link"
+                  href="https://www.youtube.com/@inicruel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Открыть YouTube Dota 2: @inicruel"
+                >
+                  Открыть канал
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M10 14 20 4M14 4h6v6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="row">
+                  <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M7 7.5 12 4l5 3.5V18l-5 3-5-3V7.5Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.2 10.2 12 8.5l2.8 1.7V13L12 14.7 9.2 13v-2.8Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="card__title">YouTube Valorant</div>
+                    <div class="muted">Динамика, стиль, клиповая подача</div>
+                  </div>
+                </div>
+                <a
+                  class="channel-link"
+                  href="https://www.youtube.com/@inicruelv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Открыть YouTube Valorant: @inicruelv"
+                >
+                  Открыть канал
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M10 14 20 4M14 4h6v6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats" class="section">
+        <div class="container">
+          <div class="section__head reveal">
+            <div class="kicker">Статистика</div>
+            <h2 class="h2">Метрики и аудитория</h2>
+            <p class="lead">Карусель листается стрелками и свайпом (по одной карточке).</p>
+          </div>
+
+          <div class="toggle reveal" aria-label="Переключатель игры">
+            <button class="btn btn--ghost is-active" type="button" data-game="dota" aria-pressed="true">Dota 2</button>
+            <button class="btn btn--ghost" type="button" data-game="valorant" aria-pressed="false">Valorant</button>
+          </div>
+
+          <div class="carousel reveal" data-carousel aria-label="Карусель статистики">
+            <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Предыдущий слайд">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M14.5 5.5 8 12l6.5 6.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="carousel__viewport">
+              <div class="carousel__track">
+                <!-- Slides are injected by JS to support switching -->
+              </div>
+            </div>
+
+            <button class="carousel__btn carousel__btn--next" type="button" aria-label="Следующий слайд">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M9.5 5.5 16 12l-6.5 6.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="reach" class="section section--tight">
+        <div class="container">
+          <div class="section__head reveal">
+            <div class="kicker">Охваты и цена</div>
+            <h2 class="h2">Понятно по просмотрам — понятно по бюджету</h2>
+            <p class="lead">Два отдельных прайса: Dota 2 и Valorant. YouTube Shorts — +200₽ к любой планке.</p>
+          </div>
+
+          <div class="grid grid--2">
+              <article class="card reveal">
+                <div class="card__body">
+                  <div class="card__title">Dota 2 канал (TikTok)</div>
+                  <table class="table" aria-label="Прайс Dota 2 TikTok">
+                    <thead>
+                      <tr>
+                        <th>Планка</th>
+                        <th>Цена</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>до 10к просмотров</td>
+                        <td><strong>350₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>10–30к</td>
+                        <td><strong>700₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>30–70к</td>
+                        <td><strong>1400₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>70–100к+</td>
+                        <td><strong>2400₽</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="note" style="margin-top: 12px">
+                    <strong>YouTube Shorts:</strong> +200₽ к любой планке
+                  </div>
+                </div>
+              </article>
+
+              <article class="card reveal">
+                <div class="card__body">
+                  <div class="card__title">Valorant канал (TikTok)</div>
+                  <table class="table" aria-label="Прайс Valorant TikTok">
+                    <thead>
+                      <tr>
+                        <th>Планка</th>
+                        <th>Цена</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>до 10к просмотров</td>
+                        <td><strong>150₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>10–30к</td>
+                        <td><strong>400₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>30–70к</td>
+                        <td><strong>1000₽</strong></td>
+                      </tr>
+                      <tr>
+                        <td>70–100к+</td>
+                        <td><strong>1600₽</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="note" style="margin-top: 12px">
+                    <strong>YouTube Shorts:</strong> +200₽ к любой планке
+                  </div>
+                </div>
+              </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section__head reveal">
+            <div class="kicker">Услуги</div>
+            <h2 class="h2">Реклама вашего продукта</h2>
+            <p class="lead">Могу рекламировать любой ваш продукт: баннером в ролике и/или кликабельной ссылкой в шапке профиля.</p>
+          </div>
+
+          <div class="grid grid--2">
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="card__title">Что входит</div>
+                <ul class="meta-list" style="margin-top: 2px">
+                  <li>
+                    <svg class="meta-icn" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 5v14m0 0 6-6m-6 6-6-6"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Кликабельная ссылка в шапке профиля
+                  </li>
+                  <li>
+                    <svg class="meta-icn" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M21 7 10 18l-5-5"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Баннер внутри ролика (2–3 секунды)
+                  </li>
+                  <li>
+                    <svg class="meta-icn" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M4 12h16"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M12 4v16"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    Формат: чисто, без воды, в моём стиле
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card reveal">
+              <div class="card__body">
+                <div class="card__title">Как выглядит в ролике</div>
+                <p class="lead" style="margin: 0">
+                  В момент пика (после хука) появляется ваш баннер: аккуратная плашка сверху или снизу кадра на 2–3 секунды,
+                  с коротким текстом и призывом перейти по ссылке в шапке профиля. Дальше сразу обратно в экшен — нативно и без
+                  перегруза, чтобы удержание не проседало.
+                </p>
+                <div class="badge-row" style="margin-top: 8px">
+                  <span class="pill">Нативно</span>
+                  <span class="pill">Коротко</span>
+                  <span class="pill">С кликами</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <section id="faq" class="section section--tight" aria-label="Частые вопросы">
+            <div class="section__head reveal">
+              <div class="kicker">FAQ</div>
+              <h2 class="h2">Частые вопросы</h2>
+              <p class="lead">Коротко и честно — чтобы вам было спокойно.</p>
+            </div>
+
+            <div class="faq">
+              <article class="card faq__item reveal" data-faq-item>
+                <button class="faq__btn" type="button" aria-expanded="false">
+                  <span class="faq__q">
+                    <span class="faq__qTitle">А если я закажу, а ты пропадёшь?</span>
+                    <span class="faq__qHint">Про связь и «страх исчезновения»</span>
+                  </span>
+                  <span class="faq__chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6.5 9.5 12 15l5.5-5.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq__panel" role="region">
+                  <div class="faq__content">
+                    <p>
+                      Я на связи каждый день. Можем заключить простой договор (юридически не обязую, но для спокойствия — составлю).
+                      Или вы можете отслеживать меня по каналам — я не исчезну с многотысячной аудиторией.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card faq__item reveal" data-faq-item>
+                <button class="faq__btn" type="button" aria-expanded="false">
+                  <span class="faq__q">
+                    <span class="faq__qTitle">Как я узнаю, что просмотры реальные, а не накрутка?</span>
+                    <span class="faq__qHint">Скрины аналитики + проверяемая статистика</span>
+                  </span>
+                  <span class="faq__chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6.5 9.5 12 15l5.5-5.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq__panel" role="region">
+                  <div class="faq__content">
+                    <p>
+                      Я скину вам скриншоты аналитики TikTok/YouTube через 5 дней после выхода. Там видна география зрителей, возраст,
+                      пол, устройства. Боты такую статистику не дают. Можете проверить сами в любой момент.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card faq__item reveal" data-faq-item>
+                <button class="faq__btn" type="button" aria-expanded="false">
+                  <span class="faq__q">
+                    <span class="faq__qTitle">А сколько переходов по ссылке я получу с 50к просмотров?</span>
+                    <span class="faq__qHint">Ожидаемая конверсия без «сказок»</span>
+                  </span>
+                  <span class="faq__chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6.5 9.5 12 15l5.5-5.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq__panel" role="region">
+                  <div class="faq__content">
+                    <p>
+                      Честно: от 500 до 1200 переходов, в зависимости от качества ссылки и призыва. Конверсия из просмотра в клик — 1–4%.
+                      Я не обещаю «десятки тысяч», но гарантирую, что ссылка будет заметной и кликабельной.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card faq__item reveal" data-faq-item>
+                <button class="faq__btn" type="button" aria-expanded="false">
+                  <span class="faq__q">
+                    <span class="faq__qTitle">Почему я должен выбрать тебя, а не блогера с миллионом?</span>
+                    <span class="faq__qHint">Про «потеряться в рекламе» и точечность</span>
+                  </span>
+                  <span class="faq__chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6.5 9.5 12 15l5.5-5.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq__panel" role="region">
+                  <div class="faq__content">
+                    <p>
+                      Потому что у блогера с миллионом вы потеряетесь в потоке рекламы, а ваша ссылка утонет. У меня — каждая интеграция
+                      идёт точечно, я лично заинтересован в результате, и моя аудитория доверяет моим рекомендациям. Плюс цена в 10 раз
+                      ниже.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card faq__item reveal" data-faq-item>
+                <button class="faq__btn" type="button" aria-expanded="false">
+                  <span class="faq__q">
+                    <span class="faq__qTitle">Ты сам ведёшь каналы или нанимаешь кого-то?</span>
+                    <span class="faq__qHint">Про контроль качества и стиль</span>
+                  </span>
+                  <span class="faq__chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6.5 9.5 12 15l5.5-5.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq__panel" role="region">
+                  <div class="faq__content">
+                    <p>
+                      Всё сам: идеи, монтаж, постинг, аналитика. Это моё лицо и мой стиль. Я не отдаю на аутсорс, чтобы не терять
+                      качество.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="cta reveal">
+            <div class="cta__inner">
+              <div class="section__head" style="margin-bottom: 0">
+                <div class="kicker">Контакты</div>
+                <h2 class="h2">Готов обсудить интеграцию</h2>
+                <p class="lead">
+                  Напишите в Telegram — отвечаю быстро. Если удобнее, можно продублировать на email.
+                </p>
+              </div>
+
+              <div class="cta__row">
+                <a class="btn btn--primary" href="https://t.me/sentgun" target="_blank" rel="noopener noreferrer">
+                  Написать в Telegram
+                  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M21 5.1c.1-.8-.6-1.4-1.3-1.2L3.3 9.8c-1 .35-.97 1.76.04 2.05l4.3 1.23 1.6 5.2c.3.98 1.55 1.1 2.02.2l2.5-4.7 4.8 3.54c.75.55 1.8.12 1.94-.8L21 5.1Z"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.3 13.2 18.2 7.9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </a>
+
+                <div class="inline-list">
+                  <span class="muted">Telegram:</span>
+                  <a href="https://t.me/sentgun" target="_blank" rel="noopener noreferrer">@sentgun</a>
+                  <span class="muted">Email:</span>
+                  <a href="mailto:flawmariner@gmail.com">flawmariner@gmail.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="reveal">
+            <div class="container" style="padding: 0">
+              © <span id="year"></span> Inicruel • One‑page portfolio
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Smooth anchor scroll (native where possible)
+        document.documentElement.style.scrollBehavior = prefersReducedMotion ? "auto" : "smooth";
+
+        // Reveal on scroll
+        const revealEls = Array.from(document.querySelectorAll(".reveal, .reveal-row"));
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) entry.target.classList.add("is-visible");
+            }
+          },
+          { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+
+        // Price tables: staggered reveal per row
+        const priceRows = Array.from(document.querySelectorAll("#reach .table tbody tr"));
+        for (const [i, tr] of priceRows.entries()) {
+          tr.classList.add("reveal-row");
+          tr.style.setProperty("--reveal-delay", `${i * 90}ms`);
+        }
+        priceRows.forEach((tr) => revealObserver.observe(tr));
+
+        // Carousel (stats replacement)
+        const carousel = document.querySelector("[data-carousel]");
+        if (carousel) {
+          const track = carousel.querySelector(".carousel__track");
+          let slides = Array.from(carousel.querySelectorAll(".carousel__slide"));
+          const prevBtn = carousel.querySelector(".carousel__btn--prev");
+          const nextBtn = carousel.querySelector(".carousel__btn--next");
+
+          let index = 0;
+          const clampIndex = (i) => {
+            const n = slides.length || 1;
+            return ((i % n) + n) % n;
+          };
+
+          const render = () => {
+            const i = clampIndex(index);
+            index = i;
+            if (track) track.style.transform = `translateX(${-i * 100}%)`;
+          };
+
+          const dotaImages = [
+            { src: "met.png", caption: "Основные метрики" },
+            { src: "l.png", caption: "Лучшие публикации" },
+            { src: "z.png", caption: "Зрители" },
+            { src: "p.png", caption: "Подписчики" },
+          ];
+
+          const valorantImages = [
+            { src: "met1.png", caption: "Основные метрики" },
+            { src: "l1.png", caption: "Лучшие публикации" },
+            { src: "z1.png", caption: "Зрители" },
+            { src: "p1.png", caption: "Подписчики" },
+          ];
+
+          const setSlides = (items) => {
+            if (!track) return;
+            track.innerHTML = "";
+
+            for (const item of items) {
+              const figure = document.createElement("figure");
+              figure.className = "carousel__slide";
+
+              const img = document.createElement("img");
+              img.className = "carousel__media";
+              img.src = item.src;
+              img.alt = item.caption;
+              img.loading = "lazy";
+              img.draggable = false;
+
+              const cap = document.createElement("figcaption");
+              cap.className = "carousel__caption";
+              cap.textContent = item.caption;
+
+              figure.appendChild(img);
+              figure.appendChild(cap);
+              track.appendChild(figure);
+            }
+
+            slides = Array.from(track.querySelectorAll(".carousel__slide"));
+            index = 0; // reset on any content change
+            render();
+          };
+
+          const goPrev = () => {
+            index -= 1;
+            render();
+          };
+          const goNext = () => {
+            index += 1;
+            render();
+          };
+
+          if (prevBtn) prevBtn.addEventListener("click", goPrev);
+          if (nextBtn) nextBtn.addEventListener("click", goNext);
+
+          // Game switcher
+          const toggleWrap = document.querySelector("#stats .toggle");
+          const toggleBtns = toggleWrap ? Array.from(toggleWrap.querySelectorAll("[data-game]")) : [];
+          const setActiveGame = (game) => {
+            for (const b of toggleBtns) {
+              const isActive = b.dataset.game === game;
+              b.classList.toggle("is-active", isActive);
+              b.setAttribute("aria-pressed", isActive ? "true" : "false");
+            }
+            if (game === "valorant") setSlides(valorantImages);
+            else setSlides(dotaImages);
+          };
+
+          for (const b of toggleBtns) {
+            b.addEventListener("click", () => {
+              setActiveGame(b.dataset.game || "dota");
+            });
+          }
+
+          // Swipe support (touch)
+          let startX = 0;
+          let startY = 0;
+          let isTouching = false;
+
+          const onTouchStart = (e) => {
+            if (prefersReducedMotion) {
+              // still allow swipes; no special casing needed
+            }
+            const t = e.touches && e.touches[0];
+            if (!t) return;
+            isTouching = true;
+            startX = t.clientX;
+            startY = t.clientY;
+          };
+
+          const onTouchEnd = (e) => {
+            if (!isTouching) return;
+            isTouching = false;
+            const t = (e.changedTouches && e.changedTouches[0]) || null;
+            if (!t) return;
+            const dx = t.clientX - startX;
+            const dy = t.clientY - startY;
+
+            // Only horizontal intent
+            if (Math.abs(dx) < 40) return;
+            if (Math.abs(dx) < Math.abs(dy) * 1.2) return;
+
+            if (dx > 0) goPrev();
+            else goNext();
+          };
+
+          const viewport = carousel.querySelector(".carousel__viewport");
+          if (viewport) {
+            viewport.addEventListener("touchstart", onTouchStart, { passive: true });
+            viewport.addEventListener("touchend", onTouchEnd, { passive: true });
+          }
+
+          // Keyboard (optional quality-of-life)
+          carousel.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") goPrev();
+            if (e.key === "ArrowRight") goNext();
+          });
+          carousel.tabIndex = 0;
+
+          // Initial content
+          setActiveGame("dota");
+        }
+
+        // Footer year
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        // Reach: animate counters once when section is visible
+        const reachSection = document.getElementById("reach");
+        if (reachSection) {
+          const priceEls = Array.from(reachSection.querySelectorAll("table.table tbody td strong"));
+          const parsePrice = (txt) => {
+            const digits = String(txt || "").replace(/[^\d]/g, "");
+            const n = Number(digits);
+            return Number.isFinite(n) ? n : null;
+          };
+
+          const animateNumber = (el, to, suffix) => {
+            const duration = 900;
+            const start = performance.now();
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+            const tick = (now) => {
+              const t = Math.min(1, (now - start) / duration);
+              const v = Math.round(to * easeOutCubic(t));
+              el.textContent = `${v}${suffix}`;
+              if (t < 1) requestAnimationFrame(tick);
+            };
+
+            requestAnimationFrame(tick);
+          };
+
+          let didRun = false;
+          const io = new IntersectionObserver(
+            (entries) => {
+              const entry = entries[0];
+              if (!entry || !entry.isIntersecting || didRun) return;
+              didRun = true;
+              io.disconnect();
+
+              for (const el of priceEls) {
+                const original = (el.textContent || "").trim();
+                const to = parsePrice(original);
+                if (to === null) continue;
+                const suffix = original.includes("₽") ? "₽" : "";
+                el.textContent = `0${suffix}`;
+
+                if (prefersReducedMotion) {
+                  el.textContent = original;
+                  continue;
+                }
+
+                animateNumber(el, to, suffix);
+              }
+            },
+            { threshold: 0.25, rootMargin: "0px 0px -12% 0px" }
+          );
+
+          io.observe(reachSection);
+        }
+
+        // FAQ accordion (smooth height animation)
+        const faqItems = Array.from(document.querySelectorAll("[data-faq-item]"));
+        const closeItem = (item) => {
+          const btn = item.querySelector(".faq__btn");
+          const panel = item.querySelector(".faq__panel");
+          if (!btn || !panel) return;
+
+          item.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+
+          if (prefersReducedMotion) {
+            panel.style.height = "auto";
+            panel.style.opacity = "1";
+            panel.style.transform = "none";
+            panel.hidden = true;
+            panel.style.height = "0px";
+            return;
+          }
+
+          const start = panel.getBoundingClientRect().height;
+          panel.style.height = `${start}px`;
+          panel.hidden = false;
+
+          requestAnimationFrame(() => {
+            panel.style.height = "0px";
+          });
+
+          const onEnd = (e) => {
+            if (e.propertyName !== "height") return;
+            panel.hidden = true;
+            panel.removeEventListener("transitionend", onEnd);
+          };
+          panel.addEventListener("transitionend", onEnd);
+        };
+
+        const openItem = (item) => {
+          const btn = item.querySelector(".faq__btn");
+          const panel = item.querySelector(".faq__panel");
+          if (!btn || !panel) return;
+
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+
+          if (prefersReducedMotion) {
+            panel.hidden = false;
+            panel.style.height = "auto";
+            return;
+          }
+
+          panel.hidden = false;
+          panel.style.height = "0px";
+          const target = panel.scrollHeight;
+
+          requestAnimationFrame(() => {
+            panel.style.height = `${target}px`;
+          });
+
+          const onEnd = (e) => {
+            if (e.propertyName !== "height") return;
+            panel.style.height = "auto";
+            panel.removeEventListener("transitionend", onEnd);
+          };
+          panel.addEventListener("transitionend", onEnd);
+        };
+
+        for (const item of faqItems) {
+          const panel = item.querySelector(".faq__panel");
+          const btn = item.querySelector(".faq__btn");
+          if (panel) panel.hidden = true;
+          if (!btn) continue;
+
+          btn.addEventListener("click", () => {
+            const isOpen = item.classList.contains("is-open");
+            for (const other of faqItems) {
+              if (other !== item && other.classList.contains("is-open")) closeItem(other);
+            }
+            if (isOpen) closeItem(item);
+            else openItem(item);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
+
