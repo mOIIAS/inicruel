@@ -9,8 +9,8 @@
       name="description"
       content="One-page portfolio контент-мейкера по Dota 2 и Valorant: каналы, статистика, охваты, прайс, услуги и контакты."
     />
-    <link rel="icon" href="1.jpg" type="image/jpeg" />
-    <link rel="apple-touch-icon" href="1.jpg" />
+    <link rel="icon" href="images/1.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="images/1.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,7 +114,7 @@
         width: 36px;
         height: 36px;
         border-radius: 999px;
-        background: url("1.jpg") center / cover no-repeat;
+        background: url("images/1.jpg") center / cover no-repeat;
         border: 1px solid rgba(26, 26, 26, 0.12);
         box-shadow: 0 10px 30px rgba(10, 16, 24, 0.10);
         position: relative;
@@ -502,9 +502,19 @@
       }
 
       .logo svg {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
         color: rgba(15, 42, 74, 0.92);
+      }
+
+      .logo--tiktok {
+        background: linear-gradient(145deg, rgba(254, 44, 85, 0.12), rgba(0, 242, 234, 0.07));
+        border-color: rgba(15, 42, 74, 0.12);
+      }
+
+      .logo--youtube {
+        background: linear-gradient(145deg, rgba(255, 0, 0, 0.1), rgba(15, 42, 74, 0.06));
+        border-color: rgba(15, 42, 74, 0.12);
       }
 
       .row {
@@ -541,7 +551,11 @@
       }
 
       .channel-link:hover svg {
-        transform: translateX(4px);
+        transform: translate(3px, -3px);
+      }
+
+      .channel-link__ext {
+        flex-shrink: 0;
       }
 
       /* Stats */
@@ -680,6 +694,71 @@
 
       .toggle .btn.is-active:hover {
         background: rgba(15, 42, 74, 0.12);
+      }
+
+      /* Dota: TikTok vs YouTube Shorts */
+      .toggle-sub {
+        margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: calc(var(--radius) - 4px);
+        background: linear-gradient(180deg, rgba(15, 42, 74, 0.05), rgba(255, 255, 255, 0.5));
+        border: 1px solid rgba(26, 26, 26, 0.08);
+        box-shadow: 0 12px 32px rgba(10, 16, 24, 0.05);
+      }
+
+      .toggle-sub[hidden] {
+        display: none !important;
+      }
+
+      .toggle-sub__hint {
+        flex: 1 0 100%;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(15, 42, 74, 0.65);
+        font-weight: 600;
+        margin: 0 0 2px;
+      }
+
+      @media (min-width: 560px) {
+        .toggle-sub__hint {
+          flex: 0 0 auto;
+          margin: 0 8px 0 0;
+        }
+      }
+
+      .toggle-sub .btn {
+        min-height: 42px;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+
+      .toggle-sub .btn[data-dota-platform="shorts"].is-active {
+        border-color: rgba(196, 48, 43, 0.42);
+        background: linear-gradient(180deg, rgba(196, 48, 43, 0.1), rgba(196, 48, 43, 0.05));
+        color: rgba(120, 28, 26, 0.98);
+        box-shadow: 0 14px 34px rgba(196, 48, 43, 0.12);
+      }
+
+      .toggle-sub .btn[data-dota-platform="shorts"].is-active:hover {
+        background: linear-gradient(180deg, rgba(196, 48, 43, 0.13), rgba(196, 48, 43, 0.07));
+      }
+
+      .toggle-sub .btn[data-valorant-platform="shorts"].is-active {
+        border-color: rgba(196, 48, 43, 0.42);
+        background: linear-gradient(180deg, rgba(196, 48, 43, 0.1), rgba(196, 48, 43, 0.05));
+        color: rgba(120, 28, 26, 0.98);
+        box-shadow: 0 14px 34px rgba(196, 48, 43, 0.12);
+      }
+
+      .toggle-sub .btn[data-valorant-platform="shorts"].is-active:hover {
+        background: linear-gradient(180deg, rgba(196, 48, 43, 0.13), rgba(196, 48, 43, 0.07));
       }
 
       .table {
@@ -986,6 +1065,159 @@
         transform: rotate(180deg);
       }
 
+      /* Case studies */
+      .case-card {
+        overflow: hidden;
+      }
+
+      .case {
+        display: grid;
+        gap: 0;
+      }
+
+      .case__visual {
+        display: grid;
+        justify-items: center;
+        gap: 14px;
+        padding: 22px 18px 20px;
+        background: linear-gradient(180deg, rgba(15, 42, 74, 0.07), transparent 62%);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+      }
+
+      .case__server {
+        margin: -4px 0 0;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(15, 42, 74, 0.98);
+      }
+
+      .case__avatar-wrap {
+        width: 128px;
+        height: 128px;
+        border-radius: 30px;
+        padding: 3px;
+        background: linear-gradient(145deg, rgba(15, 42, 74, 0.22), rgba(15, 42, 74, 0.05));
+        box-shadow: 0 14px 34px rgba(15, 42, 74, 0.12);
+      }
+
+      .case__avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 26px;
+        object-fit: cover;
+        display: block;
+        border: 1px solid rgba(26, 26, 26, 0.1);
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .case__body {
+        padding: 20px 18px 22px;
+        display: grid;
+        gap: 0;
+      }
+
+      .case__title {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .case__text {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .case__metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .case-metric {
+        padding: 12px 10px;
+        border-radius: 16px;
+        background: rgba(15, 42, 74, 0.06);
+        border: 1px solid rgba(15, 42, 74, 0.12);
+        text-align: center;
+      }
+
+      .case-metric__val {
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: rgba(15, 42, 74, 0.98);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .case-metric__lbl {
+        margin-top: 5px;
+        font-size: 11px;
+        color: rgba(26, 26, 26, 0.62);
+        line-height: 1.3;
+      }
+
+      .case__footer {
+        margin-top: 16px;
+      }
+
+      .case__review {
+        margin: 18px 0 0;
+      }
+
+      .case__review-cap {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(15, 42, 74, 0.75);
+      }
+
+      .case__review-img {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid rgba(26, 26, 26, 0.1);
+        box-shadow: 0 12px 26px rgba(10, 16, 24, 0.06);
+      }
+
+      @media (min-width: 820px) {
+        .case {
+          grid-template-columns: 272px 1fr;
+          align-items: stretch;
+        }
+
+        .case__visual {
+          border-bottom: none;
+          border-right: 1px solid rgba(26, 26, 26, 0.08);
+          padding: 28px 22px;
+          align-content: center;
+        }
+
+        .case__avatar-wrap {
+          width: 144px;
+          height: 144px;
+        }
+
+        .case__body {
+          padding: 26px 28px 28px;
+        }
+
+        .case__metrics {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
       /* Scroll reveal */
       .reveal {
         opacity: 0;
@@ -1086,6 +1318,7 @@
             <a class="nav__link" href="#stats">Статистика</a>
             <a class="nav__link" href="#reach">Охваты</a>
             <a class="nav__link" href="#services">Услуги</a>
+            <a class="nav__link" href="#cases">Кейсы</a>
             <a class="nav__link" href="#faq">FAQ</a>
             <a class="nav__link" href="#contact">Контакты</a>
           </nav>
@@ -1125,7 +1358,7 @@
                 </div>
 
                 <div class="hero__identity">
-                  <img class="avatar" src="1.jpg" alt="Аватар Inicruel" />
+                  <img class="avatar" src="images/1.jpg" alt="Аватар Inicruel" />
                   <h1 class="hero__title">Inicruel</h1>
                 </div>
                 <p class="hero__subtitle">
@@ -1168,20 +1401,11 @@
             <article class="card reveal">
               <div class="card__body">
                 <div class="row">
-                  <div class="logo" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
+                  <div class="logo logo--tiktok" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
-                        d="M9 8.5c0-1.9 1.6-3.5 3.5-3.5S16 6.6 16 8.5 14.4 12 12.5 12H11v3"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M8 15.5c.8 1.8 2.6 3 4.8 3 3 0 5.2-2.2 5.2-5.2V6.5"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
+                        fill="currentColor"
+                        d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
                       />
                     </svg>
                   </div>
@@ -1198,16 +1422,9 @@
                   aria-label="Открыть TikTok Dota 2: @inicruel"
                 >
                   Открыть канал
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg class="channel-link__ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
-                      d="M10 14 20 4M14 4h6v6"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      d="M7 17 17 7M10 7h7v7"
                       stroke="currentColor"
                       stroke-width="1.6"
                       stroke-linecap="round"
@@ -1221,19 +1438,11 @@
             <article class="card reveal">
               <div class="card__body">
                 <div class="row">
-                  <div class="logo" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
+                  <div class="logo logo--tiktok" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
-                        d="M12 3l8 6-8 12L4 9l8-6Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M9 10.2 12 7.8l3 2.4-3 4.8-3-4.8Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
+                        fill="currentColor"
+                        d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
                       />
                     </svg>
                   </div>
@@ -1250,16 +1459,9 @@
                   aria-label="Открыть TikTok Valorant: @xssoxi"
                 >
                   Открыть канал
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg class="channel-link__ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
-                      d="M10 14 20 4M14 4h6v6"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      d="M7 17 17 7M10 7h7v7"
                       stroke="currentColor"
                       stroke-width="1.6"
                       stroke-linecap="round"
@@ -1273,18 +1475,11 @@
             <article class="card reveal">
               <div class="card__body">
                 <div class="row">
-                  <div class="logo" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
+                  <div class="logo logo--youtube" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
-                        d="M10 9v6l5-3-5-3Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M21 12c0 6-3 8-9 8s-9-2-9-8 3-8 9-8 9 2 9 8Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
+                        fill="currentColor"
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                       />
                     </svg>
                   </div>
@@ -1301,16 +1496,9 @@
                   aria-label="Открыть YouTube Dota 2: @inicruel"
                 >
                   Открыть канал
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg class="channel-link__ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
-                      d="M10 14 20 4M14 4h6v6"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      d="M7 17 17 7M10 7h7v7"
                       stroke="currentColor"
                       stroke-width="1.6"
                       stroke-linecap="round"
@@ -1324,19 +1512,11 @@
             <article class="card reveal">
               <div class="card__body">
                 <div class="row">
-                  <div class="logo" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
+                  <div class="logo logo--youtube" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
-                        d="M7 7.5 12 4l5 3.5V18l-5 3-5-3V7.5Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M9.2 10.2 12 8.5l2.8 1.7V13L12 14.7 9.2 13v-2.8Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
+                        fill="currentColor"
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                       />
                     </svg>
                   </div>
@@ -1353,16 +1533,9 @@
                   aria-label="Открыть YouTube Valorant: @inicruelv"
                 >
                   Открыть канал
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg class="channel-link__ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
-                      d="M10 14 20 4M14 4h6v6"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"
+                      d="M7 17 17 7M10 7h7v7"
                       stroke="currentColor"
                       stroke-width="1.6"
                       stroke-linecap="round"
@@ -1381,12 +1554,44 @@
           <div class="section__head reveal">
             <div class="kicker">Статистика</div>
             <h2 class="h2">Метрики и аудитория</h2>
-            <p class="lead">Карусель листается стрелками и свайпом (по одной карточке).</p>
+            <p class="lead">
+              Для <strong>Dota 2</strong> и <strong>Valorant</strong> — отдельно <strong>TikTok</strong> и
+              <strong>YouTube Shorts</strong>. Карусель листается стрелками и свайпом, по одному слайду.
+            </p>
           </div>
 
           <div class="toggle reveal" aria-label="Переключатель игры">
             <button class="btn btn--ghost is-active" type="button" data-game="dota" aria-pressed="true">Dota 2</button>
             <button class="btn btn--ghost" type="button" data-game="valorant" aria-pressed="false">Valorant</button>
+          </div>
+
+          <div
+            class="toggle toggle-sub reveal"
+            id="stats-dota-platform"
+            aria-label="Площадка статистики Dota 2: TikTok или YouTube Shorts"
+          >
+            <p class="toggle-sub__hint">Dota 2 — площадка</p>
+            <button class="btn btn--ghost is-active" type="button" data-dota-platform="tiktok" aria-pressed="true">
+              TikTok
+            </button>
+            <button class="btn btn--ghost" type="button" data-dota-platform="shorts" aria-pressed="false">
+              YouTube Shorts
+            </button>
+          </div>
+
+          <div
+            class="toggle toggle-sub reveal"
+            id="stats-valorant-platform"
+            aria-label="Площадка статистики Valorant: TikTok или YouTube Shorts"
+            hidden
+          >
+            <p class="toggle-sub__hint">Valorant — площадка</p>
+            <button class="btn btn--ghost is-active" type="button" data-valorant-platform="tiktok" aria-pressed="true">
+              TikTok
+            </button>
+            <button class="btn btn--ghost" type="button" data-valorant-platform="shorts" aria-pressed="false">
+              YouTube Shorts
+            </button>
           </div>
 
           <div class="carousel reveal" data-carousel aria-label="Карусель статистики">
@@ -1540,7 +1745,7 @@
                         stroke-linejoin="round"
                       />
                     </svg>
-                    Баннер внутри ролика (2–3 секунды)
+                    Баннер на всю длину ролика
                   </li>
                   <li>
                     <svg class="meta-icn" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1567,18 +1772,104 @@
               <div class="card__body">
                 <div class="card__title">Как выглядит в ролике</div>
                 <p class="lead" style="margin: 0">
-                  В момент пика (после хука) появляется ваш баннер: аккуратная плашка сверху или снизу кадра на 2–3 секунды,
-                  с коротким текстом и призывом перейти по ссылке в шапке профиля. Дальше сразу обратно в экшен — нативно и без
-                  перегруза, чтобы удержание не проседало.
+                  Баннер показывается на протяжении всего ролика: аккуратная плашка сверху или снизу кадра на всю длину видео,
+                  с коротким текстом и призывом перейти по ссылке в шапке профиля.
                 </p>
-                <div class="badge-row" style="margin-top: 8px">
-                  <span class="pill">Нативно</span>
-                  <span class="pill">Коротко</span>
-                  <span class="pill">С кликами</span>
-                </div>
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="cases" class="section section--tight" aria-labelledby="cases-heading">
+        <div class="container">
+          <div class="section__head reveal">
+            <div class="kicker">Результаты</div>
+            <h2 class="h2" id="cases-heading">Мои рабочие кейсы</h2>
+            <p class="lead">Коротко о задаче, цифрах и том, что получил заказчик — без лишней воды.</p>
+          </div>
+
+          <article class="card case-card reveal">
+            <div class="case">
+              <div class="case__visual">
+                <div class="case__avatar-wrap">
+                  <img
+                    class="case__avatar"
+                    src="images/oplot.gif"
+                    width="144"
+                    height="144"
+                    alt="Аватар Discord-сервера OPLOT"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="case__server">OPLOT</div>
+                <span class="pill">Раскрутка Discord</span>
+              </div>
+              <div class="case__body">
+                <h3 class="case__title">OPLOT — два ролика с баннером, приток на сервер</h3>
+                <p class="case__text">
+                  Заказывали раскрутку сервера <strong>OPLOT</strong>: сделал <strong>два видео с баннером</strong> в своём
+                  формате. По сумме <strong>TikTok и YouTube Shorts</strong> ролики набрали порядка
+                  <strong>50 тысяч просмотров</strong>. На сервер <strong>OPLOT</strong> пришло
+                  <strong>58 активных участников</strong>, онлайн заметно вырос. Заказчик заплатил <strong>1050₽</strong> и
+                  остался доволен работой.
+                </p>
+                <div class="case__metrics" aria-label="Ключевые показатели кейса">
+                  <div class="case-metric">
+                    <div
+                      class="case-metric__val"
+                      data-metric-anim
+                      data-metric-target="50"
+                      data-metric-prefix="~"
+                      data-metric-suffix="к"
+                    >
+                      ~50к
+                    </div>
+                    <div class="case-metric__lbl">просмотров TikTok&nbsp;+ Shorts</div>
+                  </div>
+                  <div class="case-metric">
+                    <div class="case-metric__val" data-metric-anim data-metric-target="2">2</div>
+                    <div class="case-metric__lbl">ролика с баннером</div>
+                  </div>
+                  <div class="case-metric">
+                    <div
+                      class="case-metric__val"
+                      data-metric-anim
+                      data-metric-target="58"
+                      data-metric-prefix="+"
+                    >
+                      +58
+                    </div>
+                    <div class="case-metric__lbl">активных на сервере</div>
+                  </div>
+                  <div class="case-metric">
+                    <div class="case-metric__val" data-metric-anim data-metric-target="1050" data-metric-suffix="₽">
+                      1050₽
+                    </div>
+                    <div class="case-metric__lbl">бюджет заказчика</div>
+                  </div>
+                </div>
+                <div class="case__footer">
+                  <div class="note">
+                    <strong>Итог:</strong> рост онлайна и активности на сервере при скромном бюджете — заказчик оценил
+                    результат.
+                  </div>
+                </div>
+                <figure class="case__review">
+                  <figcaption class="case__review-cap">Отзыв владельца</figcaption>
+                  <img
+                    class="case__review-img"
+                    src="images/oplot_otz.PNG"
+                    width="880"
+                    alt="Отзыв владельца сервера OPLOT"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -1831,17 +2122,42 @@
           };
 
           const dotaImages = [
-            { src: "met.png", caption: "Основные метрики" },
-            { src: "l.png", caption: "Лучшие публикации" },
-            { src: "z.png", caption: "Зрители" },
-            { src: "p.png", caption: "Подписчики" },
+            { src: "images/dota2stats.png", caption: "Метрики" },
+            { src: "images/dota2l.png", caption: "Лучшие видео" },
+            { src: "images/dota2z.png", caption: "Зрители" },
+            { src: "images/dota2zp.png", caption: "Зрители по полу" },
+            { src: "images/dota2zv.png", caption: "Зрители по возрасту" },
+            { src: "images/dota2zm.png", caption: "Зрители по странам" },
+            { src: "images/dota2p.png", caption: "Подписчики" },
+            { src: "images/dota2pp.png", caption: "Подписчики по полу" },
+            { src: "images/dota2pv.png", caption: "Подписчики по возрасту" },
+            { src: "images/dota2pm.png", caption: "Подписчики по странам" },
+          ];
+
+          /* YouTube Shorts Dota 2 — 5 скриншотов рядом с index.html */
+          const dotaShortsImages = [
+            { src: "images/dota2adsadad.png", caption: "Статистика Shorts" },
+            { src: "images/dota2saod.png", caption: "Аудитория: возраст • Shorts" },
+            { src: "images/dota2sp.png", caption: "Пол зрителей • Shorts" },
+            { src: "images/dota2sss.png", caption: "Зрители по странам • Shorts" },
+            { src: "images/dota2svod.png", caption: "Общая сводка по видео • Shorts" },
           ];
 
           const valorantImages = [
-            { src: "met1.png", caption: "Основные метрики" },
-            { src: "l1.png", caption: "Лучшие публикации" },
-            { src: "z1.png", caption: "Зрители" },
-            { src: "p1.png", caption: "Подписчики" },
+            { src: "images/valts.png", caption: "Статистика" },
+            { src: "images/vallp.png", caption: "Лучшие видео" },
+            { src: "images/valz.png", caption: "Зрители" },
+            { src: "images/valzp.png", caption: "Зрители по полу" },
+            { src: "images/valzv.png", caption: "Зрители по возрасту" },
+            { src: "images/valzm.png", caption: "Зрители по странам" },
+          ];
+
+          const valorantShortsImages = [
+            { src: "images/valsstats.png", caption: "Статистика • Shorts" },
+            { src: "images/valsaud.png", caption: "Аудитория по возрасту • Shorts" },
+            { src: "images/valstatsaudp.png", caption: "Аудитория по полу • Shorts" },
+            { src: "images/valstasst.png", caption: "Аудитория по стране • Shorts" },
+            { src: "images/valscheck.png", caption: "Общие видео на канале • Shorts" },
           ];
 
           const setSlides = (items) => {
@@ -1885,22 +2201,71 @@
           if (prevBtn) prevBtn.addEventListener("click", goPrev);
           if (nextBtn) nextBtn.addEventListener("click", goNext);
 
-          // Game switcher
-          const toggleWrap = document.querySelector("#stats .toggle");
+          // Game switcher + Dota TikTok / Shorts
+          const toggleWrap = document.querySelector("#stats .toggle[aria-label='Переключатель игры']");
           const toggleBtns = toggleWrap ? Array.from(toggleWrap.querySelectorAll("[data-game]")) : [];
+          const dotaPlatformWrap = document.getElementById("stats-dota-platform");
+          const dotaPlatformBtns = dotaPlatformWrap
+            ? Array.from(dotaPlatformWrap.querySelectorAll("[data-dota-platform]"))
+            : [];
+          const valorantPlatformWrap = document.getElementById("stats-valorant-platform");
+          const valorantPlatformBtns = valorantPlatformWrap
+            ? Array.from(valorantPlatformWrap.querySelectorAll("[data-valorant-platform]"))
+            : [];
+          let dotaPlatform = "tiktok";
+          let valorantPlatform = "tiktok";
+
+          const setDotaPlatform = (platform) => {
+            dotaPlatform = platform === "shorts" ? "shorts" : "tiktok";
+            for (const b of dotaPlatformBtns) {
+              const isActive = b.dataset.dotaPlatform === dotaPlatform;
+              b.classList.toggle("is-active", isActive);
+              b.setAttribute("aria-pressed", isActive ? "true" : "false");
+            }
+            setSlides(dotaPlatform === "shorts" ? dotaShortsImages : dotaImages);
+          };
+
+          const setValorantPlatform = (platform) => {
+            valorantPlatform = platform === "shorts" ? "shorts" : "tiktok";
+            for (const b of valorantPlatformBtns) {
+              const isActive = b.dataset.valorantPlatform === valorantPlatform;
+              b.classList.toggle("is-active", isActive);
+              b.setAttribute("aria-pressed", isActive ? "true" : "false");
+            }
+            setSlides(valorantPlatform === "shorts" ? valorantShortsImages : valorantImages);
+          };
+
           const setActiveGame = (game) => {
             for (const b of toggleBtns) {
               const isActive = b.dataset.game === game;
               b.classList.toggle("is-active", isActive);
               b.setAttribute("aria-pressed", isActive ? "true" : "false");
             }
-            if (game === "valorant") setSlides(valorantImages);
-            else setSlides(dotaImages);
+            if (dotaPlatformWrap) {
+              dotaPlatformWrap.hidden = game === "valorant";
+            }
+            if (valorantPlatformWrap) {
+              valorantPlatformWrap.hidden = game === "dota";
+            }
+            if (game === "valorant") setValorantPlatform(valorantPlatform);
+            else setDotaPlatform(dotaPlatform);
           };
 
           for (const b of toggleBtns) {
             b.addEventListener("click", () => {
               setActiveGame(b.dataset.game || "dota");
+            });
+          }
+
+          for (const b of dotaPlatformBtns) {
+            b.addEventListener("click", () => {
+              setDotaPlatform(b.dataset.dotaPlatform || "tiktok");
+            });
+          }
+
+          for (const b of valorantPlatformBtns) {
+            b.addEventListener("click", () => {
+              setValorantPlatform(b.dataset.valorantPlatform || "tiktok");
             });
           }
 
@@ -2009,6 +2374,62 @@
           );
 
           io.observe(reachSection);
+        }
+
+        // Cases: same counter feel as reach — ease-out, stagger, run once
+        const casesSection = document.getElementById("cases");
+        if (casesSection) {
+          const metricEls = Array.from(casesSection.querySelectorAll(".case-metric__val[data-metric-anim]"));
+          const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+          const duration = 950;
+          const staggerMs = 110;
+
+          const setMetricText = (el, n) => {
+            const prefix = el.getAttribute("data-metric-prefix") || "";
+            const suffix = el.getAttribute("data-metric-suffix") || "";
+            el.textContent = `${prefix}${n}${suffix}`;
+          };
+
+          const runMetric = (el, target, delayMs) => {
+            const startAnim = () => {
+              const start = performance.now();
+              const tick = (now) => {
+                const t = Math.min(1, (now - start) / duration);
+                const v = Math.round(target * easeOutCubic(t));
+                setMetricText(el, v);
+                if (t < 1) requestAnimationFrame(tick);
+              };
+              requestAnimationFrame(tick);
+            };
+            if (delayMs > 0) setTimeout(startAnim, delayMs);
+            else startAnim();
+          };
+
+          let casesDidRun = false;
+          const casesIo = new IntersectionObserver(
+            (entries) => {
+              const entry = entries[0];
+              if (!entry || !entry.isIntersecting || casesDidRun) return;
+              casesDidRun = true;
+              casesIo.disconnect();
+
+              metricEls.forEach((el, i) => {
+                const target = Number(el.getAttribute("data-metric-target"));
+                if (!Number.isFinite(target)) return;
+
+                if (prefersReducedMotion) {
+                  setMetricText(el, target);
+                  return;
+                }
+
+                setMetricText(el, 0);
+                runMetric(el, target, i * staggerMs);
+              });
+            },
+            { threshold: 0.25, rootMargin: "0px 0px -12% 0px" }
+          );
+
+          casesIo.observe(casesSection);
         }
 
         // FAQ accordion (smooth height animation)
